@@ -1,1 +1,1 @@
-streamlit run KHH_Fin_Performance.py
+streamlit run Fin_Performance.py
