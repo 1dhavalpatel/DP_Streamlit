@@ -23,16 +23,17 @@ st.subheader('Data as of 16-Nov-2023')
 ### Sidebar SELECTION ###
 with st.sidebar:
     st.markdown('Select the filters you want to apply')
-    st.caption('how does it look in caption mode?')
+    plan_radio = st.radio(
+        "Choose the plan",("Regular", "Direct Plan"))
     sixM = st.slider('Select returns for 6M', 0, 100, 10)
     oneY = st.slider('Select returns for 1Y', 0, 100, 10)
     threeY = st.slider('Select returns for 3Y', 0, 100, 10)
     fiveY = st.slider('Select returns for 5Y', 0, 100, 10)
     tenY = st.slider('Select returns for 10Y', 0, 100, 10)
-    plan_radio = st.radio(
-        "Choose the plan",("Regular", "Direct Plan"))
 
+    
 ### Apply filters ###
+dfMF = dfMF[dfMF['Plan'] == plan_radio]
 dfMF = dfMF[dfMF['6M'] >= sixM]
 dfMF = dfMF[dfMF['1Y'] >= oneY]
 dfMF = dfMF[dfMF['3Y'] >= threeY]
@@ -42,4 +43,18 @@ dfMF = dfMF[dfMF['10Y'] >= tenY]
 ### Helper Methods ###
 
 ### Main Page content ###
-st.dataframe(dfMF) # Same as st.write(dfMF)
+col1, col2, col3 = st.columns(3)
+
+with col1:
+   st.header("Average AuM(Cr)")
+   st.write(dfMF['AuM (Cr)'].mean().round(2))
+
+with col2:
+   st.header("Average 1Y return")
+   st.write(dfMF['1Y'].mean().round(2))
+
+with col3:
+   st.header("Average 5Y return")
+   st.write(dfMF['5Y'].mean().round(2))
+
+st.dataframe(dfMF[['Scheme Name','Crisil Rank','AuM (Cr)','3M','6M','1Y','2Y','3Y','5Y','10Y']]) # Same as st.write(dfMF)
