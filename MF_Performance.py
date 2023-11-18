@@ -18,7 +18,13 @@ dfMF['10Y'] = dfMF['10Y'].str.replace('%', '').fillna(0).astype(float)
 ### INTRODUCTION ###
 st.set_page_config(layout="wide")
 st.title("Welcome to DP's Mutual funds Performance Tracker!")
-st.subheader('Data as of 16-Nov-2023')
+st.caption('Data as of 16-Nov-2023')
+
+mfCategory = st.multiselect(
+    'Select the categories',
+    ['Small Cap Fund', 'Mid Cap Fund', 'Large Cap Fund', 'Large & Mid Cap Fund', 'Flexi Cap Fund', 'Index Funds/ETFs'],
+    ['Small Cap Fund', 'Mid Cap Fund'])
+Category Name
 
 ### Sidebar SELECTION ###
 with st.sidebar:
@@ -39,6 +45,7 @@ dfMF = dfMF[dfMF['1Y'] >= oneY]
 dfMF = dfMF[dfMF['3Y'] >= threeY]
 dfMF = dfMF[dfMF['5Y'] >= fiveY]
 dfMF = dfMF[dfMF['10Y'] >= tenY]
+dfMF = dfMF[dfMF['Category Name'].isin(mfCategory)]
 
 ### Helper Methods ###
 
