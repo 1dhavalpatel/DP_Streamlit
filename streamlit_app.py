@@ -1,1 +1,1 @@
-streamlit run Fin_Performance.py
+streamlit run MF_Performance.py
