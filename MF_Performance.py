@@ -30,16 +30,14 @@ with st.sidebar:
     st.markdown('Select the filters you want to apply')
     plan_radio = st.radio(
         "Choose the plan",("Regular", "Direct Plan"))
-    sixM = st.slider('Select returns for 6M', 0, 100, 10)
     oneY = st.slider('Select returns for 1Y', 0, 100, 10)
     threeY = st.slider('Select returns for 3Y', 0, 100, 10)
     fiveY = st.slider('Select returns for 5Y', 0, 100, 10)
-    tenY = st.slider('Select returns for 10Y', 0, 100, 10)
+    tenY = st.slider('Select returns for 10Y', 0, 100, 0)
 
     
 ### Apply filters ###
 dfMF = dfMF[dfMF['Plan'] == plan_radio]
-dfMF = dfMF[dfMF['6M'] >= sixM]
 dfMF = dfMF[dfMF['1Y'] >= oneY]
 dfMF = dfMF[dfMF['3Y'] >= threeY]
 dfMF = dfMF[dfMF['5Y'] >= fiveY]
