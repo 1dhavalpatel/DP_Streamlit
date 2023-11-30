@@ -51,14 +51,14 @@ col1, col2, col3 = st.columns(3)
 
 with col1:
    st.subheader("Average AuM(Cr)")
-   st.write(round(dfMF['AuM (Cr)'].mean(),2))
+   st.write(dfMF['AuM (Cr)'].mean().round(2))
 
 with col2:
-   st.subheader("Average 1Y return")
+   st.subheader("Average 1Y return(%)")
    st.write(dfMF['1Y'].mean().round(2))
 
 with col3:
-   st.subheader("Average 5Y return")
+   st.subheader("Average 5Y return(%)")
    st.write(dfMF['5Y'].mean().round(2))
 
 st.dataframe(dfMF[['Scheme Name','Crisil Rank','AuM (Cr)','3M','6M','1Y','2Y','3Y','5Y','10Y']], hide_index=True) # Same as st.write(dfMF)
