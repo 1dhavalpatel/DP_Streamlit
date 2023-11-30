@@ -51,7 +51,7 @@ col1, col2, col3 = st.columns(3)
 
 with col1:
    st.subheader("Average AuM(Cr)")
-   st.write(dfMF['AuM (Cr)'].mean().round(2))
+   st.write(round(dfMF['AuM (Cr)'].mean(),2))
 
 with col2:
    st.subheader("Average 1Y return")
