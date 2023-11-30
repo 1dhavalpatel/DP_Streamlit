@@ -22,7 +22,7 @@ st.caption('Data as of 16-Nov-2023')
 
 mfCategory = st.multiselect(
     'Select the categories',
-    ['Small Cap Fund', 'Mid Cap Fund', 'Large Cap Fund', 'Large & Mid Cap Fund', 'Flexi Cap Fund', 'Index Funds/ETFs'],
+    ['Small Cap Fund', 'Mid Cap Fund', 'Large Cap Fund', 'Large & Mid Cap Fund', 'Flexi Cap Fund', 'Multi Cap Fund', 'Index Funds/ETFs'],
     ['Small Cap Fund', 'Mid Cap Fund'])
 
 ### Sidebar SELECTION ###
