@@ -62,6 +62,8 @@ with col3:
    st.subheader("Average 5Y return(%)")
    st.write(dfMF['5Y'].mean().round(2))
 
-st.dataframe(dfMF[['Scheme Name','Crisil Rank','AuM (Cr)','3M','6M','1Y','2Y','3Y','5Y','10Y']].style.highlight_max(axis=1)
+dfToDisplay = dfMF[['Scheme Name','Crisil Rank','AuM (Cr)','3M','6M','1Y','2Y','3Y','5Y','10Y']] 
+
+st.dataframe(dfToDisplay.style.highlight_max(axis=1)
              , hide_index=True
              , use_container_width=True)
