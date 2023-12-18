@@ -32,7 +32,7 @@ with st.sidebar:
         "Choose the plan",("Regular", "Direct Plan"))
     oneY = st.slider('Select returns for 1Y', 0, 100, 10)
     threeY = st.slider('Select returns for 3Y', 0, 100, 10)
-    fiveY = st.slider('Select returns for 5Y', 0, 100, 10)
+    fiveY = st.slider('Select returns for 5Y', 0, 100, 0)
     tenY = st.slider('Select returns for 10Y', 0, 100, 0)
 
     
@@ -50,8 +50,9 @@ dfMF = dfMF[dfMF['Category Name'].isin(mfCategory)]
 col1, col2, col3 = st.columns(3)
 
 with col1:
-   st.subheader("Average AuM(Cr)")
-   st.write(dfMF['AuM (Cr)'].mean().round(2))
+   st.metric(label="Average AuM(Cr)", value=dfMF['AuM (Cr)'].mean().round(2))
+   #st.subheader("Average AuM(Cr)")
+   #st.write(dfMF['AuM (Cr)'].mean().round(2))
 
 with col2:
    st.subheader("Average 1Y return(%)")
@@ -61,4 +62,6 @@ with col3:
    st.subheader("Average 5Y return(%)")
    st.write(dfMF['5Y'].mean().round(2))
 
-st.dataframe(dfMF[['Scheme Name','Crisil Rank','AuM (Cr)','3M','6M','1Y','2Y','3Y','5Y','10Y']], hide_index=True) # Same as st.write(dfMF)
+st.dataframe(dfMF[['Scheme Name','Crisil Rank','AuM (Cr)','3M','6M','1Y','2Y','3Y','5Y','10Y']].style.highlight_max(axis=1)
+             , hide_index=True
+             , use_container_width=True)
