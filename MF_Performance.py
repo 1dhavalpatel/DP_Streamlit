@@ -50,7 +50,8 @@ dfMF = dfMF[dfMF['Category Name'].isin(mfCategory)]
 col1, col2, col3 = st.columns(3)
 
 with col1:
-   st.metric(label="Average AuM(Cr)", value=dfMF['AuM (Cr)'].mean().round(2))
+   st.metric(label="Average AuM(Cr)"
+             , value=dfMF['AuM (Cr)'].mean().round(2).format("%d %"))
    #st.subheader("Average AuM(Cr)")
    #st.write(dfMF['AuM (Cr)'].mean().round(2))
 
@@ -62,8 +63,6 @@ with col3:
    st.subheader("Average 5Y return(%)")
    st.write(dfMF['5Y'].mean().round(2))
 
-dfToDisplay = dfMF[['Scheme Name','Crisil Rank','AuM (Cr)','3M','6M','1Y','2Y','3Y','5Y','10Y']] 
-
-st.dataframe(dfToDisplay.style.highlight_max(axis=0)
+st.dataframe(dfMF[['Scheme Name','Crisil Rank','AuM (Cr)','3M','6M','1Y','2Y','3Y','5Y','10Y']]
              , hide_index=True
              , use_container_width=True)
