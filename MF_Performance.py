@@ -2,7 +2,7 @@ import pandas as pd
 import streamlit as st
 
 ### Data Import ###
-dfMF = pd.read_csv("./Mutual funds Performance Tracker Nov 23.csv")
+dfMF = pd.read_csv("./Mutual funds Performance Tracker Jan 24.csv")
 
 ### Data Cleanup ###
 dfMF['1W'] = dfMF['1W'].str.replace('%', '').fillna(0).astype(float)
@@ -22,7 +22,7 @@ st.caption('Data as of 16-Nov-2023')
 
 mfCategory = st.multiselect(
     'Select the categories',
-    ['Small Cap Fund', 'Mid Cap Fund', 'Large Cap Fund', 'Large & Mid Cap Fund', 'Flexi Cap Fund', 'Multi Cap Fund', 'Index Funds/ETFs'],
+    ['Index Funds/ETFs','Sectoral/Thematic','Small Cap Fund','Fund of Funds','Mid Cap Fund','Value Fund','Multi Cap Fund','Flexi Cap Fund','ELSS','Dividend Yield Fund','Large & Mid Cap Fund','Contra Fund','Retirement Fund','Focused Fund','Aggressive Hybrid Fund','Large Cap Fund','Dynamic Asset Allocation or Balanced Advantage','Childrens Fund','Multi Asset Allocation','Equity Savings','Conservative Hybrid Fund','Gilt Fund','Liquid Fund','Overnight Fund'],
     ['Small Cap Fund', 'Mid Cap Fund'])
 
 ### Sidebar SELECTION ###
