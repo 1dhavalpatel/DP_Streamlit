@@ -18,11 +18,11 @@ dfMF['10Y'] = dfMF['10Y'].str.replace('%', '').fillna(0).astype(float)
 ### INTRODUCTION ###
 st.set_page_config(layout="wide")
 st.title("DP's Mutual funds Performance Tracker!")
-st.caption('Data as of 16-Nov-2023')
+st.caption('Data as of 2-Jan-2024')
 
 mfCategory = st.multiselect(
     'Select the categories',
-    ['Index Funds/ETFs','Sectoral/Thematic','Small Cap Fund','Fund of Funds','Mid Cap Fund','Value Fund','Multi Cap Fund','Flexi Cap Fund','ELSS','Dividend Yield Fund','Large & Mid Cap Fund','Contra Fund','Retirement Fund','Focused Fund','Aggressive Hybrid Fund','Large Cap Fund','Dynamic Asset Allocation or Balanced Advantage','Childrens Fund','Multi Asset Allocation','Equity Savings','Conservative Hybrid Fund','Gilt Fund','Liquid Fund','Overnight Fund'],
+    ['Index Funds/ETFs','Sectoral/Thematic','Small Cap Fund','Mid Cap Fund','Value Fund','Multi Cap Fund','Flexi Cap Fund','ELSS','Large & Mid Cap Fund','Contra Fund','Retirement Fund','Aggressive Hybrid Fund','Large Cap Fund','Dynamic Asset Allocation or Balanced Advantage','Childrens Fund','Multi Asset Allocation','Conservative Hybrid Fund','Gilt Fund','Liquid Fund','Overnight Fund'],
     ['Small Cap Fund', 'Mid Cap Fund'])
 
 ### Sidebar SELECTION ###
