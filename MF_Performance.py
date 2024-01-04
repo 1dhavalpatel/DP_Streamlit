@@ -17,7 +17,7 @@ dfMF['10Y'] = dfMF['10Y'].str.replace('%', '').fillna(0).astype(float)
 
 ### INTRODUCTION ###
 st.set_page_config(layout="wide")
-st.title("DP's Mutual funds Performance Tracker!")
+st.title("DP's Mutual Funds Performance Tracker!")
 st.caption('Data as of 2-Jan-2024')
 
 mfCategory = st.multiselect(
